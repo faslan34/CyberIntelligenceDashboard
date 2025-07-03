@@ -1,0 +1,9 @@
+flask
+flask-cors
+openai
+python-dotenv
+feedparser
+requests
+gunicorn
+httpx
+beautifulsoup4
