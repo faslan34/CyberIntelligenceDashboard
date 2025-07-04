@@ -1,6 +1,6 @@
 
 from flask import Flask, request, jsonify
-from flask_cors import CORS
+
 import openai
 import os
 from dotenv import load_dotenv
@@ -10,15 +10,16 @@ from collections import defaultdict
 
 # === Setup ===
 app = Flask(__name__)
-CORS(app)
 
+from flask_cors import CORS
+CORS(app, resources={r"/api/*": {"origins": "https://cyber-intelligence-frontend-5qkyw08c3-fatih-aslans-projects.vercel.app"}})
 # === Load env vars ===
 
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # === AI Q&A ===
-@app.route('/ask', methods=['POST'])
+@app.route('/api/ask', methods=['POST'])
 def ask():
     data = request.get_json()
     question = data.get("question", "")
