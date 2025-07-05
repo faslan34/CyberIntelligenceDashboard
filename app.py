@@ -15,7 +15,7 @@ from flask_cors import CORS
 CORS(app, resources={r"/api/*": {"origins": "https://cyber-intelligence-frontend-5qkyw08c3-fatih-aslans-projects.vercel.app"}})
 # === Load env vars ===
 
-load_dotenv()
+
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # === AI Q&A ===
